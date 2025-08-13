@@ -1,3 +1,21 @@
 [submodule "kie-soup"]
 	path = kie-soup
 	url = https://github.com/akoylu/kie-soup.git
+[submodule "kie-jpmml-integration"]
+	path = kie-jpmml-integration
+	url = https://github.com/akoylu/kie-jpmml-integration.git
+[submodule "jbpm"]
+	path = jbpm
+	url = https://github.com/akoylu/jbpm.git
+[submodule "droolsjbpm-knowledge"]
+	path = droolsjbpm-knowledge
+	url = https://github.com/akoylu/droolsjbpm-knowledge.git
+[submodule "droolsjbpm-integration"]
+	path = droolsjbpm-integration
+	url = https://github.com/akoylu/droolsjbpm-integration.git
+[submodule "drools"]
+	path = drools
+	url = https://github.com/akoylu/drools.git
+[submodule "droolsjbpm-build-bootstrap"]
+	path = droolsjbpm-build-bootstrap
+	url = https://github.com/akoylu/droolsjbpm-build-bootstrap.git

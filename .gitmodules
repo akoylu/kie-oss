@@ -1,0 +1,3 @@
+[submodule "kie-soup"]
+	path = kie-soup
+	url = https://github.com/akoylu/kie-soup.git

@@ -36,7 +36,7 @@ jobs:
         uses: actions/setup-java@v3.14.1
         with:
           # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
-          java-version: 17 # optional
+          java-version: 11 # optional
           # The path to the `.java-version` file. See examples of supported syntax in README file
           #java-version-file: # optional
           # Java distribution. See the list of supported distributions in README file
@@ -77,7 +77,7 @@ jobs:
         run: mvn --version
 
       - name: Clean project
-        run: mvn clean #install -DskipTests -DskipITs -Dnone -nsu
+        run: mvn clean install -DskipTests -DskipITs -Dnone -nsu
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script

@@ -28,9 +28,13 @@ jobs:
           # Whether to checkout submodules: `true` to checkout submodules or `recursive` to recursively checkout submodules.
           submodules: true
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Starting build
+      - name: Debug Secrets        
+        run: |
+          if [ -n "${{ secrets.MAVEN_TOKEN }}" ]; then
+          echo "MAVEN_TOKEN is set "
+          else
+            echo "MAVEN_TOKEN is missing"
+          fi
 
       - name: Setup Java JDK
         uses: actions/setup-java@v3.14.1

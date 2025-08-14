@@ -94,7 +94,7 @@ jobs:
           path: ~/.m2/settings.xml
 
       - name: Set version
-        run: mvn -U versions:set -DnewVersion=7.67.2-SNAPSHOT-gt-${{ github.run_number }} #-DprocessAllModules
+        run: mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} #-DprocessAllModules
 
       - name: Build
         run: mvn clean package -DskipTests -DskipITs -Dnone -nsu

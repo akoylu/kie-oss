@@ -96,11 +96,13 @@ jobs:
       - name: Build droolsjbpm-build-bootstrap
         run: |
           cd droolsjbpm-build-bootstrap
-          mvn clean package -DskipTests -DskipITs -Dnone -nsu
+          mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} -DprocessAllModules
+          mvn clean install -DskipTests -DskipITs -Dnone -nsu
 
       - name: Build kie-soup
         run: |
           cd kie-soup
+          mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} -DprocessAllModules
           mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
 #      - name: Set version

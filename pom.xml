@@ -13,11 +13,13 @@
     <java.version>17</java.version>
   </properties>
 
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>akoylu</name>
-      <url>https://maven.pkg.github.com/akoylu/kieoss</url>
-    </repository>
-  </distributionManagement>
+  <modules>
+    <module>droolsjbpm-build-bootstrap</module>
+    <module>kie-soup</module>
+    <module>droolsjbpm-knowledge</module>
+    <module>drools</module>
+    <module>jbpm</module>
+    <module>kie-jpmml-integration</module>
+    <module>droolsjbpm-integration</module>
+  </modules>
 </project>

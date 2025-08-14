@@ -95,9 +95,9 @@ jobs:
           <settings>
             <servers>
               <server>
-                <id>jboss</id>
-                <username>${{secrets.JBOSS_USERNAME}}</username>
-                <password>${{secrets.JBOSS_PASSWORD}}</password>
+                <id>sonatype</id>
+                <username>${{secrets.SONATYPE_USERNAME}}</username>
+                <password>${{secrets.SONATYPE_PASSWORD}}</password>
               </server>
             </servers>
           </settings>
@@ -116,4 +116,4 @@ jobs:
         run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=jboss::https://repository.jboss.org/nexus/content/groups/DXP/
+        run: mvn deploy -DaltDeploymentRepository=sonatype::https://ossrh-staging-api.central.sonatype.com/service/local/

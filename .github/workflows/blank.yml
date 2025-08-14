@@ -87,4 +87,4 @@ jobs:
         run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=central::default::https://maven.pkg.github.com/akoylu -Dtoken=${{ github.token }}
+        run: mvn deploy -DaltDeploymentRepository=central::default::https://maven.pkg.github.com/akoylu -Dtoken=${{ secrets.MAVEN_TOKEN }}

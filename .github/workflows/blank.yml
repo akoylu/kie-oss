@@ -100,4 +100,4 @@ jobs:
         run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=sonatype::https://ossrh-staging-api.central.sonatype.com/service/local/
+        run: mvn deploy -DaltDeploymentRepository=sonatype::https://central.sonatype.com/

@@ -97,7 +97,7 @@ jobs:
         run: mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} -DprocessAllModules
 
       - name: Build
-        run: mvn clean install -DskipTests -DskipITs -Dnone -nsu
+        run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
         run: mvn deploy -DaltDeploymentRepository=repsy::default::https://repo.repsy.io/mvn/akoylu/maven/

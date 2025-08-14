@@ -72,22 +72,6 @@ jobs:
       - name: Print maven version
         run: mvn --version
 
-      - name: Debug JBOSS_USERNAME Secret
-        run: |
-          if [ -n "${{ secrets.JBOSS_USERNAME }}" ]; then
-          echo "JBOSS_USERNAME is set "
-          else
-            echo "JBOSS_USERNAME is missing"
-          fi
-
-      - name: Debug JBOSS_PASSWORD Secret
-        run: |
-          if [ -n "${{ secrets.JBOSS_PASSWORD }}" ]; then
-          echo "JBOSS_PASSWORD is set "
-          else
-            echo "JBOSS_PASSWORD is missing"
-          fi
-          
       - name: Configure Maven settings.xml
         run: |
           mkdir -p ~/.m2

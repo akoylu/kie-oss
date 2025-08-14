@@ -96,7 +96,12 @@ jobs:
       - name: Build droolsjbpm-build-bootstrap
         run: |
           cd droolsjbpm-build-bootstrap
-          mvn clean package -DskipTests -DskipITs -Dfull -nsu
+          mvn clean package -DskipTests -DskipITs -Dnone -nsu
+
+      - name: Build kie-soup
+        run: |
+          cd kie-soup
+          mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
 #      - name: Set version
 #        run: mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} -DprocessAllModules
@@ -104,5 +109,5 @@ jobs:
 #      - name: Build
 #        run: mvn clean package -DskipTests -DskipITs -Dfull -nsu
 
-      - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=repsy::default::https://repo.repsy.io/mvn/akoylu/maven/
+#      - name: Deploy
+#        run: mvn deploy -DaltDeploymentRepository=repsy::default::https://repo.repsy.io/mvn/akoylu/maven/

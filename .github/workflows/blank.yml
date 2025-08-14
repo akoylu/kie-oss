@@ -28,14 +28,6 @@ jobs:
           # Whether to checkout submodules: `true` to checkout submodules or `recursive` to recursively checkout submodules.
           submodules: true
 
-      - name: Debug Secrets        
-        run: |
-          if [ -n "${{ secrets.MAVEN_TOKEN }}" ]; then
-          echo "MAVEN_TOKEN is set "
-          else
-            echo "MAVEN_TOKEN is missing"
-          fi
-
       - name: Setup Java JDK
         uses: actions/setup-java@v3.14.1
         with:
@@ -80,6 +72,35 @@ jobs:
       - name: Print maven version
         run: mvn --version
 
+      - name: Debug Secrets        
+        run: |
+          if [ -n "${{ secrets.MAVEN_TOKEN }}" ]; then
+          echo "MAVEN_TOKEN is set "
+          else
+            echo "MAVEN_TOKEN is missing"
+          fi
+          
+      - name: Configure Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<EOL
+          <settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>akoylu</username>
+                <password>${{secrets.MAVEN_TOKEN}}</password>
+              </server>
+            </servers>
+          </settings>
+          EOL
+
+      - name: Upload settings.xml
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-settings
+          path: ~/.m2/settings.xml
+
       - name: Set version
         run: mvn -U versions:set -DnewVersion=7.67.2-SNAPSHOT-gt-${{ github.run_number }} -DprocessAllModules
 
@@ -87,4 +108,4 @@ jobs:
         run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=central::default::https://maven.pkg.github.com/akoylu -Dtoken=${{ secrets.MAVEN_TOKEN }}
+        run: mvn deploy

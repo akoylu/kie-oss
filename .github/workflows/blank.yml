@@ -93,11 +93,16 @@ jobs:
           name: maven-settings
           path: ~/.m2/settings.xml
 
+      - name: Build droolsjbpm-build-bootstrap
+        run: |
+          cd droolsjbpm-build-bootstrap
+          mvn clean package -DskipTests -DskipITs -Dfull -nsu
+
 #      - name: Set version
 #        run: mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} -DprocessAllModules
 
-      - name: Build
-        run: mvn clean package -DskipTests -DskipITs -Dfull -nsu
+#      - name: Build
+#        run: mvn clean package -DskipTests -DskipITs -Dfull -nsu
 
       - name: Deploy
         run: mvn deploy -DaltDeploymentRepository=repsy::default::https://repo.repsy.io/mvn/akoylu/maven/

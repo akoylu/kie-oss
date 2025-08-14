@@ -72,12 +72,20 @@ jobs:
       - name: Print maven version
         run: mvn --version
 
-      - name: Debug Secrets        
+      - name: Debug JBOSS_USERNAME Secret
         run: |
-          if [ -n "${{ secrets.MAVEN_TOKEN }}" ]; then
-          echo "MAVEN_TOKEN is set "
+          if [ -n "${{ secrets.JBOSS_USERNAME }}" ]; then
+          echo "JBOSS_USERNAME is set "
           else
-            echo "MAVEN_TOKEN is missing"
+            echo "JBOSS_USERNAME is missing"
+          fi
+
+      - name: Debug JBOSS_PASSWORD Secret
+        run: |
+          if [ -n "${{ secrets.JBOSS_PASSWORD }}" ]; then
+          echo "JBOSS_PASSWORD is set "
+          else
+            echo "JBOSS_PASSWORD is missing"
           fi
           
       - name: Configure Maven settings.xml
@@ -87,9 +95,9 @@ jobs:
           <settings>
             <servers>
               <server>
-                <id>github</id>
-                <username>akoylu</username>
-                <password>${{secrets.MAVEN_TOKEN}}</password>
+                <id>jboss</id>
+                <username>${{secrets.JBOSS_USERNAME}}</username>
+                <password>${{secrets.JBOSS_PASSWORD}}</password>
               </server>
             </servers>
           </settings>

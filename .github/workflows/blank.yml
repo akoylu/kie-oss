@@ -77,7 +77,4 @@ jobs:
         run: mvn --version
 
       - name: Set version
-        run: mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_id }} -DprocessAllModules
-        
-      - name: Build project
-        run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
+        run: mvn -U versions:set -DnewVersion=7.67.2.Final-gt-${{ github.run_number }} -DprocessAllModules

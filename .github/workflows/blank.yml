@@ -100,4 +100,4 @@ jobs:
         run: mvn clean install -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=github::https://maven.pkg.github.com/akoylu/kieoss/ -Dmaven.resolver.transport=wagon
+        run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/akoylu/kieoss/ -Dmaven.resolver.transport=wagon

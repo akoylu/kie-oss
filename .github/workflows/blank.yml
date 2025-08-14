@@ -116,4 +116,4 @@ jobs:
         run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Deploy
-        run: mvn deploy -DaltDeploymentRepository=jboss::https://repository.jboss.org/nexus/content/groups/public/
+        run: mvn deploy -DaltDeploymentRepository=jboss::https://repository.jboss.org/nexus/content/groups/DXP/

@@ -109,7 +109,7 @@ jobs:
 #          mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Build
-        run: mvn clean package -DskipTests -DskipITs -Dfull -nsu
+        run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
 #      - name: Deploy
 #        run: mvn deploy -DaltDeploymentRepository=repsy::default::https://repo.repsy.io/mvn/akoylu/maven/

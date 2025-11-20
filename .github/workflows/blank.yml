@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-java@v3.14.1
         with:
           # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
-          java-version: 17 # optional
+          java-version: 11 # optional
           # The path to the `.java-version` file. See examples of supported syntax in README file
           #java-version-file: # optional
           # Java distribution. See the list of supported distributions in README file
@@ -109,7 +109,7 @@ jobs:
 #          mvn clean package -DskipTests -DskipITs -Dnone -nsu
 
       - name: Build
-        run: mvn clean package -DskipTests -DskipITs -Dnone -nsu
+        run: mvn clean install -DskipTests -Dproductized -Dfull -Dspotbugs.skip -Dmaven.javadoc.skip=true -Drevapi.skip
 
 #      - name: Deploy
 #        run: mvn deploy -DaltDeploymentRepository=repsy::default::https://repo.repsy.io/mvn/akoylu/maven/
